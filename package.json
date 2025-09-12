@@ -1,0 +1,24 @@
+{
+  "name": "mongolite",
+  "version": "1.0.1",
+  "description": "MongoLite é uma biblioteca Node.js que oferece um banco de dados estilo MongoDB, totalmente offline e local, com suporte a collections, CRUD básico, schemas, validação e hooks, inspirado no Mongoose.",
+  "keywords": [
+    "MongoOffine",
+    "MongoLocal",
+    "MongoDB",
+    "Database",
+    "NoSQL"
+  ],
+  "homepage": "https://github.com/KaueDevX/MongoLite#readme",
+  "bugs": {
+    "url": "https://github.com/KaueDevX/MongoLite/issues/new"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaueDevX/MongoLite.git"
+  },
+  "license": "MIT",
+  "author": "KaueDevX",
+  "type": "commonjs",
+  "main": "./index.js"
+}
