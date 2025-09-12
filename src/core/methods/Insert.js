@@ -1,3 +1,12 @@
+const crypto = require("crypto");
+
+function generateId() {
+  const timestamp = Date.now().toString(16);
+  const randomPart = Math.floor(Math.random() * 1e12).toString(36);
+  const id = (timestamp + randomPart).slice(0, 25);
+  return `_${id}`;
+}
+
 module.exports = {
   insertMany(documents) {
     try {
@@ -27,6 +36,7 @@ module.exports = {
       ) {
         throw new Error("Document must be a non-null object.");
       }
+      document._id = document._id || generateId();
       this.db.data.body[this.name].push(document);
       this.db._persist();
       return { success: true, document };
