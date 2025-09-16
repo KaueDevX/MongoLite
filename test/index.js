@@ -1,4 +1,4 @@
-const MongoLite = require("../src");
+const MongoLite = require("mongolitedb");
 
 const Database = new MongoLite("MyBase.db");
 

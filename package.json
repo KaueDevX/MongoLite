@@ -1,5 +1,5 @@
 {
-  "name": "mongolite",
+  "name": "mongolitedb",
   "version": "1.0.3",
   "description": "MongoLite é uma biblioteca Node.js que oferece um banco de dados estilo MongoDB, totalmente offline e local, com suporte a collections, CRUD básico, schemas, validação e hooks, inspirado no Mongoose.",
   "keywords": [
@@ -22,6 +22,7 @@
   "type": "commonjs",
   "main": "./index.js",
   "dependencies": {
+    "mongolitedb": "^1.0.3",
     "msgpack-lite": "^0.1.26"
   }
 }
