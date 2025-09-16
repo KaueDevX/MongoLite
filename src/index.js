@@ -4,7 +4,8 @@ const zlib = require("zlib");
 const path = require("path");
 const fs = require("fs");
 
-const Collection = require("./core/Collection");
+const Model = require("./core/Model");
+const Schema = require("./core/Schema");
 
 function generateHash(obj) {
   const json = JSON.stringify(obj);
@@ -35,12 +36,22 @@ class MongoLite {
     this.loadFromDisk();
   }
 
-  collection(name) {
+  model(name, schema) {
+    if (!name || typeof name !== "string") {
+      throw new Error("You must provide a valid name for the model.");
+    }
+    if (!schema || typeof schema.validate !== "function") {
+      throw new Error("You must provide a valid Schema instance.");
+    }
     if (!this.data.body[name]) {
       this.data.body[name] = [];
       this._persist();
     }
-    return new Collection(name, this);
+    return new Model(name, schema, this);
+  }
+
+  Schema(definition) {
+    return new Schema(definition);
   }
 
   _persist() {
@@ -69,5 +80,5 @@ class MongoLite {
   }
 }
 
-module.exports = MongoLite;
+(module.exports = MongoLite), Schema;
 module.exports.default = MongoLite;

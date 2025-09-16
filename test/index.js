@@ -2,7 +2,17 @@ const MongoLite = require("../src");
 
 const Database = new MongoLite("MyBase.db");
 
-const users = Database.collection("Usuarios");
+const schema = Database.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+});
 
-console.log(users.findOne({ name: "John" }));
-//console.log(users.insertOne({ name: "John", age: 30 }));
+const Users = Database.model("users", schema);
+
+const result = Users.find({
+  name: "EU",
+});
+
+console.log(result);
